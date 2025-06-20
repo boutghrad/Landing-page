@@ -1,163 +1,475 @@
-<!-- بداية الملف: index.html -->
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Google Workspace for Small Businesses</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background: #f1f3f4;
-      color: #202124;
-    }
-
-    header {
-      background: linear-gradient(to right, #4285f4, #1a73e8);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .header-content h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      font-size: 1.2rem;
-      margin-bottom: 40px;
-    }
-
-    .logo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-      gap: 15px;
-      max-width: 600px;
-      margin: 0 auto 50px;
-    }
-
-    .logo-item {
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-      font-size: 1.5rem;
-      transition: 0.3s;
-    }
-
-    .logo-item a {
-      color: white;
-      text-decoration: none;
-    }
-
-    .logo-item:hover {
-      background: rgba(255, 255, 255, 0.35);
-      transform: translateY(-5px);
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .feature {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .feature i {
-      font-size: 2rem;
-      color: #4285f4;
-      margin-bottom: 10px;
-    }
-
-    .feature h3 {
-      margin: 10px 0;
-    }
-
-    .feature p {
-      font-size: 0.95rem;
-      color: #5f6368;
-    }
-
-    .feature a {
-      display: inline-block;
-      margin-top: 10px;
-      background: #34a853;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 30px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .feature a:hover {
-      background: #2c9044;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px 10px;
-      background: #202124;
-      color: #ccc;
-      font-size: 0.9rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Workspace for Small Businesses</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4285f4;
+            --secondary: #34a853;
+            --accent: #ea4335;
+            --light: #f8f9fa;
+            --dark: #202124;
+            --gray: #5f6368;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f9f9f9 0%, #e8f0fe 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(120deg, var(--primary) 0%, #1a73e8 100%);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.1)" points="0,0 100,0 0,100"/></svg>');
+            background-size: 100% 100%;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+            gap: 15px;
+            max-width: 600px;
+            margin: 40px auto;
+        }
+        
+        .logo-item {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 80px 0;
+        }
+        
+        .feature {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .feature h3 {
+            margin: 0 0 15px;
+            font-size: 1.8rem;
+            color: var(--dark);
+        }
+        
+        .feature p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f1f8ff 0%, #e8f0fe 100%);
+            border-radius: 20px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: var(--secondary);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--gray);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-button {
+            background: linear-gradient(to right, var(--secondary) 0%, #2daf65 100%);
+            color: white;
+            border: none;
+            padding: 18px 45px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(52, 168, 83, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(52, 168, 83, 0.4);
+        }
+        
+        .testimonials {
+            margin: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .testimonial::before {
+            content: "“";
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 5rem;
+            color: var(--primary);
+            opacity: 0.1;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .client {
+            display: flex;
+            align-items: center;
+        }
+        
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+        
+        .client-info h4 {
+            margin: 0;
+            color: var(--dark);
+        }
+        
+        .client-info span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links a {
+            color: #e8eaed;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            color: #9aa0a6;
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .feature {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                padding: 60px 20px 80px;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <header>
-    <div class="header-content">
-      <h1>Google Workspace for Small Businesses</h1>
-      <p class="subtitle">All-in-one tools to grow your business efficiently and professionally.</p>
-      <div class="logo-grid">
-        <div class="logo-item"><a href="https://mail.google.com/" target="_blank"><i class="fas fa-envelope"></i></a></div>
-        <div class="logo-item"><a href="https://calendar.google.com/" target="_blank"><i class="fas fa-calendar-alt"></i></a></div>
-        <div class="logo-item"><a href="https://drive.google.com/" target="_blank"><i class="fas fa-cloud"></i></a></div>
-        <div class="logo-item"><a href="https://meet.google.com/" target="_blank"><i class="fas fa-video"></i></a></div>
-        <div class="logo-item"><a href="https://docs.google.com/" target="_blank"><i class="fas fa-file-alt"></i></a></div>
-        <div class="logo-item"><a href="https://chat.google.com/" target="_blank"><i class="fas fa-comments"></i></a></div>
-      </div>
+    <header>
+        <div class="header-content">
+            <h1>Google Workspace for Small Businesses</h1>
+            <p class="subtitle">A comprehensive suite of productivity and collaboration tools designed to help your small business grow and succeed.</p>
+            
+            <div class="logo-grid">
+                <div class="logo-item"><i class="fas fa-envelope"></i></div>
+                <div class="logo-item"><i class="fas fa-calendar-alt"></i></div>
+                <div class="logo-item"><i class="fas fa-cloud"></i></div>
+                <div class="logo-item"><i class="fas fa-video"></i></div>
+                <div class="logo-item"><i class="fas fa-file-alt"></i></div>
+                <div class="logo-item"><i class="fas fa-comments"></i></div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Professional Email</h3>
+                <p>Use a custom email address with your business domain (@yourcompany.com) to enhance credibility and professionalism.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3>High-Quality Video Meetings</h3>
+                <p>Meet with your team or clients through high-definition video with screen sharing and recording up to 100 participants.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>Secure Cloud Storage</h3>
+                <p>Get encrypted cloud storage for each user with advanced sharing features and permissions management.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Advanced Security</h3>
+                <p>Advanced protection against online threats with data recovery options and privacy protection features.</p>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>Start Your Business Journey with Google Workspace</h2>
+            <p>Join thousands of small businesses using Google Workspace to improve productivity, collaboration, and growth.</p>
+            <button class="cta-button">Start Your Free Trial Now</button>
+        </div>
+        
+        <div class="testimonials">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"Google Workspace has completely transformed our way of working. Collaboration is easier, meetings are more efficient, and project management is smoother."</p>
+                    <div class="client">
+                        <div class="client-avatar">M</div>
+                        <div class="client-info">
+                            <h4>Mohamed Said</h4>
+                            <span>Project Manager</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"The integrated tools and user-friendly interface made the transition seamless even for our non-technical team. The cost is very reasonable for the features we get."</p>
+                    <div class="client">
+                        <div class="client-avatar">S</div>
+                        <div class="client-info">
+                            <h4>Sara Khaled</h4>
+                            <span>Owner of E-commerce Store</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"The Gmail business email with cloud storage helped us build trust with our clients and increase sales by 30% in the first 3 months."</p>
+                    <div class="client">
+                        <div class="client-avatar">A</div>
+                        <div class="client-info">
+                            <h4>Aly Rashid</h4>
+                            <span>Marketing Company Owner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </header>
-
-  <section class="features">
-    <div class="feature">
-      <i class="fas fa-envelope"></i>
-      <h3>Professional Email</h3>
-      <p>Custom email address with Gmail – branded with your company domain.</p>
-      <a href="https://workspace.google.com/products/gmail/" target="_blank">Learn More</a>
-    </div>
-
-    <div class="feature">
-      <i class="fas fa-video"></i>
-      <h3>HD Video Calls</h3>
-      <p>Host secure meetings and video conferences with Google Meet.</p>
-      <a href="https://meet.google.com/" target="_blank">Try Meet</a>
-    </div>
-
-    <div class="feature">
-      <i class="fas fa-cloud"></i>
-      <h3>Cloud Storage</h3>
-      <p>Store, access and share files from anywhere with Google Drive.</p>
-      <a href="https://workspace.google.com/products/drive/" target="_blank">View Storage</a>
-    </div>
-  </section>
-
-  <footer>
-    © 2025 Google Workspace Landing. All rights reserved.
-  </footer>
-
+    
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Pricing</a>
+            <a href="#">Support</a>
+            <a href="#">Features</a>
+            <a href="#">Comparison</a>
+        </div>
+        
+        <p class="copyright">© 2023 Google Workspace for Small Businesses. All rights reserved.</p>
+    </footer>
 </body>
 </html>
